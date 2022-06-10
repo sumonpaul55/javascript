@@ -1,41 +1,44 @@
-const normalPerson = {
-  name: "Rahim",
-  lastname: "Uddin",
-  salary: 20000,
-  getFullname: function () {
-    console.log(this.name, this.lastname);
+const normalperson = {
+  firstName: "sumon",
+  lastName: "paul",
+  salary: 15000,
+  getFullName: function () {
+    console.log(this.firstName, this.lastName);
   },
-  chargebill: function (amount = 0) {
+  chargeBill: function (amount, tips, tax) {
     // console.log(this);
-    this.salary = this.salary - amount;
+    this.salary = this.salary - amount - tips - tax;
     return this.salary;
   },
 };
 
-const heroperson = {
-  firstname: "hero",
-  lastname: "Alom",
-  salary: 30000,
+// console.log(normalperson.chargeBill(5000));
+// console.log(normalperson.chargeBill(2000));
+const heroPerson = {
+  firstName: "hero",
+  lastName: "Balam",
+  salary: 25000,
 };
-
-const sumonpaul = {
-  firstname: "Sumon",
-  lastname: "Paul",
-  salary: 40000,
+const frindlyPerson = {
+  firstName: "hero",
+  lastName: "Balam",
+  salary: 12000,
 };
+// apply bind method
+// const herobillcharge = normalperson.chargeBill.bind(heroPerson);
+// // herobillcharge(1000);
+// herobillcharge(3000);
+// herobillcharge(5000);
+// // console.log(heroPerson.salary);
 
-const herobill = normalPerson.chargebill.bind(sumonpaul);
-herobill(5000);
-herobill(2000);
-herobill(8000);
-herobill(5000);
-herobill(13000);
-console.log(sumonpaul.salary);
-
-// call ther hero persons salary after cutting chargebill
-const heropersonchargebill = normalPerson.chargebill.bind(heroperson);
-
-heropersonchargebill(4000);
-heropersonchargebill(19000);
-
-console.log(heroperson.salary);
+// const frindlychargBill = normalperson.chargeBill.bind(frindlyPerson);
+// frindlychargBill(4039);
+// // console.log(frindlyPerson.salary);
+// normalperson.chargeBill.call(heroPerson, 900, 100, 10);
+// normalperson.chargeBill.call(heroPerson, 3000, 300, 30);
+// console.log(heroPerson.salary);
+// normalperson.chargeBill.call(frindlyPerson, 5000, 500, 50);
+// console.log(frindlyPerson.salary);
+normalperson.chargeBill.apply(heroPerson, [3000, 200, 100]);
+normalperson.chargeBill.apply(heroPerson, [2385, 150, 60]);
+console.log(heroPerson.salary);

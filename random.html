@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Random data load from Api</title>
+</head>
+
+<body>
+
+    <h2 id="name"></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        function getData() {
+            fetch('https://randomuser.me/api/?results=5000')
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    let result = data.results;
+                    // let user = data.results[0];
+                    // let name = user.name;
+                    // let fulname = `${name.title} ${name.first} ${name.last}`;
+                    // document.getElementById("name").innerText = fulname;
+                    // console.log(data)
+                    for (let i = 0; i < result.length; i++) {
+                        const user = result[i];
+                        console.log(user)
+                    }
+                })
+        }
+        getData();
+    </script>
+</body>
+
+</html>

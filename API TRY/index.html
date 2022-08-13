@@ -30,16 +30,25 @@
 
 
         <script>
-            let takeClass = () => {
-                fetch("http://www.boredapi.com/api/activity/")
-                    .then(response => response.json())
+            // let takeClass = () => {
+            //     fetch("http://www.boredapi.com/api/activity/")
+            //         .then(response => response.json())
+            //         .then(data => {
+            //             document.getElementById("activity").innerText = data.activity;
+            //         })
+            // }
+            // setInterval(() => {
+            //     takeClass();
+            // }, 2000)
+
+            function wheather() {
+                fetch('https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid={API key}')
+                    .then(res => res.json())
                     .then(data => {
-                        document.getElementById("activity").innerText = data.activity;
+                        console.log(data);
                     })
             }
-            setInterval(() => {
-                takeClass();
-            }, 2000)
+            wheather()
         </script>
 
 </body>
